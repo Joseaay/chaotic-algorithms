@@ -7,12 +7,12 @@
 <h4 align="center">A visual representation of some of the most famous chaotic algorithms.</h4>
 
 <p align="center">
-  <a href="/https://www.joseayllonllamas.com/chaotic-algorithms/graficas">Graphics</a> •
-  <a href="/https://www.joseayllonllamas.com/chaotic-algorithms/sistemasdinamicos">Dynamic Systems</a> •
-  <a href="/https://www.joseayllonllamas.com/chaotic-algorithms/mandelbrotmenu">Mandelbrot</a>  
+  <a href="https://www.joseayllonllamas.com/chaotic-algorithms/graficas">Graphics</a> •
+  <a href="https://www.joseayllonllamas.com/chaotic-algorithms/sistemasdinamicos">Dynamic Systems</a> •
+  <a href="https://www.joseayllonllamas.com/chaotic-algorithms/mandelbrotmenu">Mandelbrot</a>  
 </p>
 <div align="center">
-   <b><a href="/https://www.joseayllonllamas.com/chaotic-algorithms/">🔬 SEE FULL WEBSITE 🔬</a></b>
+   <b><a href="https://www.joseayllonllamas.com/chaotic-algorithms/">🔬 SEE FULL WEBSITE 🔬</a></b>
   </div>
 <br>
 
