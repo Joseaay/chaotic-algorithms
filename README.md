@@ -24,7 +24,7 @@ The target was to make a dynamic web project for visualization the different cha
 <br>
 
 <div align="center">
-    <img src="./images/screenshot.gif" alt="Screenchot" width="500">
+    <img src="./images/screenshot.gif" alt="Screenchot" width="700">
 </div>
 
 <br>
