@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conjunto de Julià - Algoritmos Caóticos</title>
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="website keywords, website keywords" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style/style.css" />
+        <script
+            type="text/javascript"
+            src="js/algorithms-js/mandelbrot-julia.js"
+        ></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="header">
+                <div id="logo">
+                    <div id="logo_text">
+                        <img
+                            src="images/us.png"
+                            width="15%"
+                            style="float:left;"
+                        />
+                        <!-- class="logo_colour", allows you to change the colour of the text -->
+                        <div style="padding-left:150px;">
+                            <h1>
+                                <a href="index.html"
+                                    >Algoritmos<span class="logo_colour"
+                                        >Caóticos</span
+                                    ></a
+                                >
+                            </h1>
+                            <h2>
+                                Algoritmos desarrollados para la introducción al
+                                caos.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div id="menubar">
+                    <ul id="menu">
+                        <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="graficas.html">Gráficas</a></li>
+                        <li>
+                            <a href="sistemasdinamicos.html"
+                                >Sistemas Dinámicos</a
+                            >
+                        </li>
+                        <li class="selected">
+                            <a href="mandelbrotmenu.html">Mandelbrot</a>
+                        </li>
+                        <li><a href="info.html">Acerca de</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content_header"></div>
+            <div id="site_content" style="width: 1200px;">
+                <div class="sidebar" style="width: 1200px; width: 94%;">
+                    <div class="sidebar_top2" style="width: 1000px;"></div>
+                    <div class="sidebar_item2" style="width: 1000px; ">
+                        <!-- insert your sidebar items here -->
+                        <h3>
+                            Conjunto de Julià asociado al conjunto de Mandelbrot
+                        </h3>
+                        <h4>Relación de números complejos</h4>
+                        <text
+                            >Los conjntos de Gaston Julià guardan relación con
+                            los conjuntos de Mandelbrot mediante el la fórmula
+                            <strong>f(z) = z² + c</strong> y el número
+                            <strong>c</strong> asociado.<br />
+                            Dicho número c es un número complejo de la forma
+                            <strong>a + bi</strong> donde a y b son números
+                            reales.<br />Al ser el conjunto de Mandelbrot un
+                            mapa formado por números complejos, el mapa
+                            resultante del conjunto de Julià será un mapa de
+                            numeros complejos que representa <br />
+                            las iteraciones de los infinitos números complejos
+                            en la fórmula anterior manteniendo c fija.</text
+                        ><br /><br /><br />
+
+                        <center>
+                            <strong
+                                ><label>Numero complejo actual: [</label>
+                                <input
+                                    type="text"
+                                    value="0.2850000000000000"
+                                    name="c1"
+                                    style="width:150px; text-align:center;"
+                                    onchange="actualizar();"
+                                />
+                                <input
+                                    type="text"
+                                    value="-0.010000000000000"
+                                    name="c2"
+                                    style="width:150px; text-align:center;"
+                                    onchange="actualizar();"
+                                />
+                                <label>]</label></strong
+                            >
+                        </center>
+                        <br />
+                        <center>
+                            <strong
+                                ><label>Numero de iteraciones: </label>
+                                <input
+                                    type="text"
+                                    value="200"
+                                    name="iterations"
+                                    style="width:30px; text-align:center;"
+                                    onchange="mandelbrot(); actualizar();"/>
+                                <label></label></strong
+                            ><br /><br />
+                            <input
+                                type="button"
+                                style="text-align:center; width: 30%;"
+                                onclick="mandelbrot(); actualizar();"
+                                value=" Actualizar "
+                            />
+                        </center>
+                    </div>
+                    <div class="sidebar_base2" style="width: 1000px;"></div>
+                </div>
+                <div id="content">
+                    <div
+                        id="canvas_container"
+                        style="width:640px;height:480px;"
+                    >
+                        <canvas id="viewport" width="640" height="480"></canvas>
+                    </div>
+                </div>
+                <div id="content">
+                    <canvas
+                        id="a"
+                        width="480"
+                        height="480"
+                        style="padding-top:20px;"
+                    ></canvas>
+                </div>
+            </div>
+
+            <div id="content_footer"></div>
+            <div id="footer">
+                <p>
+                    E.T.S. Ingeniería Informática - Matemática para la
+                    Computación
+                </p>
+                <p>Copyright &copy; Jose Antonio Ayllón</p>
+                <p>Universidad de Sevilla</p>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/algorithms-js/julia.js"></script>
+    <script>
+        mandelbrot();
+    </script>
+</html>
