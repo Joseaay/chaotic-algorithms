@@ -27,7 +27,7 @@ A Javascript project made specifically for my Computer Science degree back in 20
 The target was to make a dynamic web project for visualization the different chaotic algorithms seen in my 4th-grade subject: Mathematics for computing.
 
 <div align="center">
-    <img src="./images/us.png" alt="Screenchot" width="500">
+    <img src="./images/screenshot.gif" alt="Screenchot" width="500">
 </div>
 
 Main features of the project:
