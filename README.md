@@ -5,12 +5,6 @@
   Chaotic Algorithms<br>
 </h1>
 
-<center>
-
-[![License: GPL v3][license-image]][license-url]
-
-</center>
-
 <h4 align="center">A visual representation of some of the most famous chaotic algorithms.</h4>
 
 <p align="center">
@@ -21,14 +15,19 @@
 <div align="center">
    <b><a href="https://www.joseayllonllamas.com/chaotic-algorithms/">🔬 SEE FULL WEBSITE 🔬</a></b>
   </div>
+<br>
 
 A Javascript project made specifically for my Computer Science degree back in 2017.
 
 The target was to make a dynamic web project for visualization the different chaotic algorithms seen in my 4th-grade subject: Mathematics for computing.
 
+<br>
+
 <div align="center">
     <img src="./images/screenshot.gif" alt="Screenchot" width="500">
 </div>
+
+<br>
 
 Main features of the project:
 
@@ -63,6 +62,10 @@ Jose Antonio Ayllón Llamas
 5. Create a new Pull Request
 
 <img src="./images/etsii.png" data-canonical-src="/images/us.png" width="100" align="right" />
+<br>
+<br>
+
+[![License: GPL v3][license-image]][license-url]
 
 <!-- Markdown link & img -->
 
