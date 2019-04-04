@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Exponente Lyapunov - Algoritmos Caóticos</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/function-plot.js"></script>
+  <script type="text/javascript" src="js/math.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <img src="images/us.png" width="15%" style="float:left;"/>
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <div style="padding-left:150px;">
+            <h1><a href="index.html">Algoritmos<span class="logo_colour">Caóticos</span></a></h1>
+            <h2>Algoritmos desarrollados para la introducción al caos.</h2>
+          </div>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="graficas.html">Gráficas</a></li>
+          <li class="selected"><a href="sistemasdinamicos.html">Sistemas Dinámicos</a></li>
+          <li><a href="mandelbrotmenu.html">Mandelbrot</a></li>
+          <li><a href="info.html">Acerca de</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content" style="width: 980px;">
+      <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here-->
+            <h4>Comparativa caótica Mandelbrot - Feigembaum</h4>
+            <label>El siguiente gráfico muestra la relación existente entre el caos en el conjunto de Mandelbrot y el diagrama de bifurcación de Feigenbaum:</label>
+            <canvas id="Canvas2" width="192px" height = "239px" ></canvas>
+            <!--<canvas id="c" width="192px" height="130px"></canvas>-->
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Control de datos</h3>
+
+            <label>f(x) = </label>
+            <input type="text" name="funcion" style="width:85px; text-align:right;" value="1*x*(1-x)">
+            <input type="button" style="text-align:center; float: right;" onclick="cambia();" value=" Aceptar "/><br><br>
+            <label>Nº Iteraciones:</label>
+            <input type="text" value="150" name="repeticiones" style="width:30px; text-align:center;" onchange=""/>
+            <input type="button" style="text-align:center; float: right;" onclick="start();" value=" Aceptar "/><br><br>
+            <label>Pto. Inicial: </label>
+            <input type="text" name="punto_inicial" style="width:50px; text-align:right;" value="0.5">
+            <input type="button" style="text-align:center; float: right;" onclick="start();" value=" Aceptar "/><br><br>
+            <input type="button" style="text-align:center; width: inherit;" onclick="reset();" value=" Resetear datos "/>
+
+
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+      </div>
+      <div id="content">
+        <div id="canvas_container">
+          <div id="canvas_iteraciones"></div>
+        </div>
+        <div id="canvas_container" style="height: 180px;">
+          <div id="canvas_lyapunov" onmousemove="ejecuta();" ></div>
+        </div>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p>E.T.S. Ingeniería Informática - Matemática para la Computación</p>
+      <p>Copyright &copy; Jose Antonio Ayllón</p>
+      <p>Universidad de Sevilla</p>
+    </div>
+  </div>
+</body>
+<script>
+
+
+</script>
+
+<script>
+  var c3 = document.getElementById("Canvas2");
+  var c3_context = c3.getContext("2d");
+
+  function cambia(){
+    document.getElementsByName("punto_inicial")[0].value = 0.5;
+    document.getElementsByName("funcion")[0].value = document.getElementsByName("blue")[0].value + "*x*(1-x)";
+    start();
+  }
+
+  function ejecuta(){
+    t = document.getElementsByClassName("top-right-legend")[1].innerHTML;
+    value = parseFloat(t.split(",")[0]) * 4;
+    document.getElementsByName("funcion")[0].value = value + "*x*(1-x)";
+    start();
+
+    /*c3.width = c3.width;
+
+    //valor_linea =((value - 1) * 36) + 18;
+
+    c3_context.moveTo(valor_linea, 0);
+    c3_context.lineTo(valor_linea, 150);
+    c3_context.strokeStyle = "red";
+    c3_context.stroke();*/
+  }
+
+  function muevecanvas(x){
+    c3.width = c3.width;
+
+    c3_context.moveTo(x, 0);
+    c3_context.lineTo(x, 239);
+    c3_context.strokeStyle = "red";
+    c3_context.stroke();
+  }
+
+  function getMousePos(canvas, evt) {
+  var rect = c3.getBoundingClientRect();
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top
+  };
+}
+
+  c3.addEventListener('mousemove', function(evt) {
+          var mousePos = getMousePos(c3, evt);
+          muevecanvas(mousePos.x);
+        }, false);
+
+  function reset(){
+    document.getElementsByName("punto_inicial")[0].value = 0.5;
+    document.getElementsByName("funcion")[0].value = "1*x*(1-x)";
+    document.getElementsByName("repeticiones")[0].value = "150";
+    start();
+  }
+</script>
+<script src="js/iteraciones-lyapunov-caos.js"></script>
+<script src="js/lyapunov.js"></script>
+</html>

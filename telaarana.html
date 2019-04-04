@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Tela de Araña - Algoritmos Caóticos</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/function-plot.js"></script>
+  <script type="text/javascript" src="js/math.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <img src="images/us.png" width="15%" style="float:left;"/>
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <div style="padding-left:150px;">
+            <h1><a href="index.html">Algoritmos<span class="logo_colour">Caóticos</span></a></h1>
+            <h2>Algoritmos desarrollados para la introducción al caos.</h2>
+          </div>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Inicio</a></li>
+          <li class="selected"><a href="graficas.html">Gráficas</a></li>
+          <li><a href="sistemasdinamicos.html">Sistemas Dinámicos</a></li>
+          <li><a href="mandelbrotmenu.html">Mandelbrot</a></li>
+          <li><a href="info.html">Acerca de</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content" style="width: 920px;">
+      <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Control de datos</h3>
+            <h4>Tela de Araña</h4><br>
+
+            <label>f(x) = </label>
+            <input type="text" name="funcion" style="width:85px; text-align:right;" value="2*x*(1-x)" onchange="start();">
+            <input type="button" style="text-align:center; float: right;" onclick="start();" value=" Aceptar "/><br><br>
+            <label>Nº Iteraciones:</label>
+            <input type="text" value="150" name="repeticiones" style="width:30px; text-align:center;" onchange="start();"/>
+            <input type="button" style="text-align:center; float: right;" onclick="start();" value=" Aceptar "/><br><br>
+            <label>Pto. Inicial: </label>
+            <input type="text" name="punto_inicial" style="width:50px; text-align:right;" value="0.1" onchange="start();">
+            <input type="button" style="text-align:center; float: right;" onclick="start();" value=" Aceptar "/><br><br>
+            <label>Eje de abcisas (x):</label><br><br>
+            <input type="text" style="text-align:right; float: left;width:20px;" name="inputrangexmax" value="0" oninput="document.getElementsByName('rangex')[0].min = this.value; start();"/>
+            <input type="range" min="0.0" max="1" value="0.7" step="0.01" name="rangex" oninput="start();" style="width:75%"/>
+            <input type="text" style="text-align:right; float: right;width:20px;" name="inputrangexmin" value="1" oninput="document.getElementsByName('rangex')[0].max = this.value; start();"/><br><br>
+            <label>Eje de ordenadas (y):</label><br><br>
+            <input type="text" style="text-align:right; float: left;width:20px;" name="inputrangeymax" value="0" oninput="document.getElementsByName('rangey')[0].min = this.value; start();"/>
+            <input type="range" min="0.0" max="1" value="0.7" step="0.01" name="rangey" oninput="start();" style="width:75%"/>
+            <input type="text" style="text-align:right; float: right;width:20px;" name="inputrangeymin" value="1" oninput="document.getElementsByName('rangey')[0].max = this.value; start();"/><br><br>
+
+            <input type="button" style="text-align:center; width: inherit;" onclick="reset(0);" value=" Resetear datos "/>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+      </div>
+      <div id="content">
+        <div id="canvas_container" style="width:640px;height:480px;">
+          <div id="grafica"></div>
+        </div>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p>E.T.S. Ingeniería Informática - Matemática para la Computación</p>
+      <p>Copyright &copy; Jose Antonio Ayllón</p>
+      <p>Universidad de Sevilla</p>
+    </div>
+  </div>
+</body>
+
+
+<script>
+start();
+
+function start(t) {
+    funcion = document.getElementsByName("funcion")[0].value;
+    pto = parseFloat(document.getElementsByName("punto_inicial")[0].value),
+    grafica = [
+      [pto, 0]
+    ];
+
+    for (var i = 0; i < document.getElementsByName("repeticiones")[0].value; i++) {
+      evaluacion = parseFloat(math.eval(funcion.replace(/x/g, pto)));
+
+      if (evaluacion > 9999999999 || evaluacion < -999999999) {
+        break;
+      }
+
+      grafica.push([pto,evaluacion]);
+      grafica.push([evaluacion,evaluacion]);
+      pto=evaluacion
+    }
+
+  functionPlot({
+    width: 640,
+    height: 480,
+    xAxis: {
+      label: 'Eje de X',
+      domain: [parseFloat(document.getElementsByName("rangex")[0].min), parseFloat(document.getElementsByName("rangex")[0].value)]
+    },
+    yAxis: {
+      label: 'Eje de Y',
+      domain: [parseFloat(document.getElementsByName("rangey")[0].min), parseFloat(document.getElementsByName("rangey")[0].value)]
+    },
+    target: '#grafica',
+    data: [
+      { fn: 'x', color: 'blue' },
+      { fn: funcion },
+      {
+        points: grafica,
+        fnType: 'points',
+        graphType: 'polyline'
+      }
+    ]
+  });
+
+};
+
+
+function reset(){
+  document.getElementsByName("funcion")[0].value = "2*x*(1-x)";
+  document.getElementsByName("repeticiones")[0].value = "150";
+  document.getElementsByName("punto_inicial")[0].value = "0.1";
+  document.getElementsByName("rangex")[0].min = 0;
+  document.getElementsByName("rangex")[0].max = 1;
+  document.getElementsByName("rangex")[0].value = 0.7;
+  document.getElementsByName("rangey")[0].min = 0;
+  document.getElementsByName("rangey")[0].max = 1;
+  document.getElementsByName("rangey")[0].value = 0.7;
+  document.getElementsByName("inputrangexmax")[0].value = 0;
+  document.getElementsByName("inputrangeymax")[0].value = 1;
+  document.getElementsByName("inputrangexmin")[0].value = 0;
+  document.getElementsByName("inputrangeymin")[0].value = 1;
+  start();
+}
+
+</script>
+</html>
