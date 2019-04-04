@@ -1,5 +1,4 @@
 <h1 align="center">
-  <br>
   <img src="./images/us.png" alt="Markdownify" width="130">
   <br>
   Chaotic Algorithms<br>
