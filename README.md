@@ -16,7 +16,7 @@
   </div>
 <br>
 
-A Javascript project made specifically for my Computer Science degree back in 2017.
+A Javascript project made specifically for my Computer Science degree back in 2016.
 
 The target was to make a dynamic web project for visualization the different chaotic algorithms seen in my 4th-grade subject: Mathematics for computing.
 
