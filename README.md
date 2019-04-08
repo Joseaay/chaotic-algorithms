@@ -45,11 +45,15 @@ Main features of the project:
 
 Jose Antonio Ayllón Llamas
 
-**Website**: [https://www.joseayllonllamas.com/](https://www.joseayllonllamas.com/)
+**💻 Website**: [https://www.joseayllonllamas.com/](https://www.joseayllonllamas.com/)
 <br>
-**E-mail**: joseayllonllamas@hotmail.com
+**📧 E-mail**: joseayllonllamas@hotmail.com
 <br>
-**Twitter**: [@joseaay](https://twitter.com/dbader_org)
+**🐦 Twitter**: [@joseaay](https://twitter.com/joseaay)
+<br>
+**🖇 LinkedIn**: [https://www.linkedin.com/in/jose-antonio-ayll%C3%B3n-llamas-b2a387120/](https://www.linkedin.com/in/jose-antonio-ayll%C3%B3n-llamas-b2a387120/)
+<br>
+**📚 StackOverflow**: [https://stackoverflow.com/users/6627524/jose-a-ayll%C3%B3n](https://stackoverflow.com/users/6627524/jose-a-ayll%C3%B3n)
 <br>
 
 ## Contributing
